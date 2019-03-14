@@ -1,0 +1,30 @@
+<div class="d-flex justify-content-between">
+    <h3>Employee List</h3>
+    <a class="btn btn-secondary" href="/employee"><i class="fas fa-plus"></i> Create New</a>
+</div>
+<br>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Full Name</th>
+      <th scope="col">E-mail</th>
+      <th scope="col">Mobile</th>
+      <th scope="col">City</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each list}}
+    <tr>
+      <td>{{this.fullName}}</td>
+      <td>{{this.email}}</td>
+      <td>{{this.mobile}}</td>
+      <td>{{this.city}}</td>
+      <td>
+          <a href="/employee/{{this._id}}"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
+          <a href="/employee/delete/{{this._id}}" onclick="return confirm('sure to delete ?');"> <i class="fas fa-trash" aria-hidden="true"></i></a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
