@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
+const favicon = require('serve-favicon');
 
 const employeeRouter = require('./routers/employeeRouter');
 require('./models/db');
@@ -13,6 +14,9 @@ app.use(bodyParser.json());
 app.set('views', path.join(__dirname, '/views/'));
 app.engine('hbs', exphbs({extname: 'hbs', defaultLayout: 'mainLayout', layoutsDir: __dirname + '/views/layouts'}))
 app.set('view engine', 'hbs');
+
+app.use(favicon(path.join(__dirname + '/public/favicon.ico')));
+
 
 
 
